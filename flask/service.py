@@ -8,7 +8,7 @@ def index():
 
 @app.route('/hello')
 def hello():
-    return "Hello, DC. You need to work hard now. And what to do is justify your time."
+    return "Hello, DC. You need to work hard now. What to do is to justify your time."
 
 @app.route('/user/<username>')
 def show_user_profile(username):
