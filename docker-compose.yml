@@ -1,0 +1,41 @@
+version: '3'
+services:
+    flask:
+        build: ./flask
+        container_name: flask_app
+        restart: always
+        environment: 
+            FLASK_ENV: development
+            FLASK_APP: service.py
+            FLASK_RUN_HOST: 0.0.0.0
+        expose:
+            - "5000"
+        volumes: 
+            - ./flask:/app
+        networks:
+            - frontend
+            - backend
+
+    nginx:
+        build: ./nginx
+        container_name: nginx_app
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - flask
+        networks: 
+            - frontend
+
+    # redis:
+    #     image: "redis"
+    #     container_name: redis_app
+    #     networks:
+    #         - backend
+
+networks:
+    frontend:
+        driver: bridge
+    backend:
+        driver: bridge
