@@ -10,6 +10,11 @@ def index():
 def hello():
     return "Hello, DC. You need to work hard now. What to do is to justify your time."
 
+
+@app.route('/zjh')
+def zjh():
+    return "zhaojiuhua, you ate paomian tonight."
+
 @app.route('/user/<username>')
 def show_user_profile(username):
     # show the user profile for that user
