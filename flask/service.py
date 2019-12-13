@@ -8,7 +8,7 @@ def index():
 
 @app.route('/hello')
 def hello():
-    return "Hello, DC. You need to work hard now. What to do is to justify your time."
+    return "Hello Deng Chuang. You need to work hard now. What to do is to justify your time."
 
 
 @app.route('/zjh')
