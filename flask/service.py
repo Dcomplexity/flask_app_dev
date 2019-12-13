@@ -13,7 +13,7 @@ def hello():
 
 @app.route('/zjh')
 def zjh():
-    return "zhaojiuhua, you ate paomian tonight."
+    return "zhaojiuhua, have a good rest"
 
 @app.route('/user/<username>')
 def show_user_profile(username):

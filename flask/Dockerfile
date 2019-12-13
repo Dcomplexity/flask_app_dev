@@ -1,4 +1,4 @@
-From python:3.6
+FROM python:3.6
 MAINTAINER Chuang cdengcnc@outlook.com
 
 WORKDIR /app
