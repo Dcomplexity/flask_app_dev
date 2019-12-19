@@ -1,20 +1,23 @@
 version: '3'
 services:
-    flask:
-        build: ./flask
-        container_name: flask_app
+    web:
+        build: ./flask/flaskr
+        container_name: flaskr
         restart: always
+        working_dir: /flask
         environment: 
             FLASK_ENV: development
-            FLASK_APP: service.py
+            # FLASK_APP: service.py
+            FLASK_APP: flaskr
             FLASK_RUN_HOST: 0.0.0.0
         expose:
             - "5000"
         volumes: 
-            - ./flask:/app
+            - ./flask:/flask
         networks:
             - frontend
             - backend
+        
 
     nginx:
         build: ./nginx
@@ -24,7 +27,7 @@ services:
             - "80:80"
             - "443:443"
         depends_on:
-            - flask
+            - web
         networks: 
             - frontend
 

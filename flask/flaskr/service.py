@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 from re import escape
 app = Flask(__name__)
 
@@ -10,10 +11,10 @@ def index():
 def hello():
     return "Hello Deng Chuang. You need to work hard now. What to do is to justify your time."
 
-
-@app.route('/zjh')
-def zjh():
-    return "zhaojiuhua, have a good rest"
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello_name(name=None):
+    return render_template('hello.html', name=name)
 
 @app.route('/user/<username>')
 def show_user_profile(username):
