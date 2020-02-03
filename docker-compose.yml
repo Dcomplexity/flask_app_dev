@@ -3,7 +3,7 @@ services:
     web:
         build: ./flask/flaskr
         container_name: flaskr
-        restart: always
+        # restart: always
         working_dir: /flask
         environment: 
             FLASK_ENV: development
@@ -22,7 +22,7 @@ services:
     nginx:
         build: ./nginx
         container_name: nginx_app
-        restart: always
+        # restart: always
         ports:
             - "80:80"
             - "443:443"
